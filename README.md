@@ -2,7 +2,7 @@
 
 Using web scraping and machine learning to visualize communities on Soundcloud.
 
-This repo contains two jupyter notebooks, soundcloud_landscape_clean.ipynb is the scraper and soundcloud_landscape_plotting_clean.ipynb plots. The records the latest
+This repo contains two jupyter notebooks, soundcloud_landscape_clean.ipynb is the scraper and soundcloud_landscape_plotting_clean.ipynb plots. This records the latest
 500 likes, comments, reposts, and follows of the accounts stored in seeds.csv, and writes them to separate dataframes.
 
 The raw data used to produce the graph can be found here: https://www.mediafire.com/folder/z8moaq2vgnbdl/soundcloud_scraped_data
