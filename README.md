@@ -1,25 +1,16 @@
 # soundcloud-mapping
 
-Using web scraping and machine learning to visualize communities on Soundcloud.
+Using web scraping and machine learning to visualize communities on SoundCloud.
 
-This repo contains two jupyter notebooks, soundcloud_landscape_clean.ipynb is the scraper and soundcloud_landscape_plotting_clean.ipynb plots. This records the latest
-500 likes, comments, reposts, and follows of the accounts stored in seeds.csv, and writes them to separate dataframes.
+This repo contains two jupyter notebooks, soundcloud_scraper_clean.ipynb is the scraper and soundcloud_landscape_plotting_clean.ipynb makes relevant visualizations. This records the latest 500 likes, comments, reposts, and follows of the accounts stored in seeds.csv, and writes them to a scipy sparse matrix. Likes are assigned a value of one and every otherr type of interaction is given a value of three. It could be modified to collect these interaction types in separate matrices but this ratio works well for data visualization.
 
 The raw data used to produce the graph can be found here: https://www.mediafire.com/folder/z8moaq2vgnbdl/soundcloud_scraped_data
 
-To use, save a seeds.csv file in your directory with the artists you want to start pulling data from first
+To use, save a seeds.csv and remaining_seeds.csv file in your directory with the artists you want to start pulling data from. Initialize both spreadsheets with the same set of seed accounts, fill in both names and links with the marker found in the soundcloud URL and just put zeros for other fields. remaining_seeds is used to label rows of the sparse matrix while seeds is used to label columns, be sure not to alter the order of these files in the middle of scraping. 
 
-Should look something like this:
+The scraper also allows for pausing in the middle of a run. To do this, simply interrupt the kernel while the scraper is still only on the likes page (this is to prevent data from being collected twice). Run the block below the main control loop to save progress. Then when you reopen the scraper run the block labeled "reload an in-progress run."
 
-name | links | followers
-
-With both name and links populated by the artist's internal soundcloud marker (e.g. the marker that refers to them in the soundcloud url rather than the actual display name)
-and followers set to 0. Only need two or three artists here that represents scenes you are interested in.
-
-The scraper will continuously append newly found artists to this list and then move to these artists and scrape them.
-
-To set up for initial use, change references to remaining_seeds in the scraper to seeds. Remaining_seeds was added as an alternate list of accounts to be scraped sorted by 
-number of interactions from the first set of accounts. 
+Once the scraper reaches the end of seed accounts, it will then identify the most interacted with account that hasn't already been scraped and append it to remaining_seeds and then scrape it. You can let it continuously do this, however it this has a tendency to eventually only reach more popular accounts which may not be desired. You can avoid this behavior by simply adding more to the remaining_seeds.csv file. 
 
 I wrote some general stuff about my methods here: https://pswjt1.medium.com/visualizing-the-shape-of-soundcloud-communities-with-web-scraping-and-machine-learning-cc1c5d948f78
 
