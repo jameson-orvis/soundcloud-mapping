@@ -6,7 +6,20 @@ This repo contains two jupyter notebooks, soundcloud_scraper_clean.ipynb is the 
 
 The raw data used to produce the graph can be found here: https://www.mediafire.com/folder/z8moaq2vgnbdl/soundcloud_scraped_data
 
-To use, save a seeds.csv and remaining_seeds.csv file in your directory with the artists you want to start pulling data from. Initialize both spreadsheets with the same set of seed accounts, fill in both names and links with the marker found in the soundcloud URL and just put zeros for other fields. remaining_seeds is used to label rows of the sparse matrix while seeds is used to label columns, be sure not to alter the order of these files in the middle of scraping. 
+To use, save a seeds.csv and remaining_seeds.csv file in your directory with the artists you want to start pulling data from. For my data visualization project, the following accounts were used as seeds representing different parts of the SoundCloud underground:
+
+kggn
+axxturel
+paulonrecords
+blackwinterwells
+djphat1996
+blackkray
+danikiyoko
+soretsuu
+tsarbeg
+mysticalmobbing
+
+Initialize both spreadsheets with the same set of seed accounts, fill in both names and links with the marker found in the soundcloud URL and just put zeros for other fields. remaining_seeds is used to label rows of the sparse matrix while seeds is used to label columns, be sure not to alter the order of these files in the middle of scraping. 
 
 The scraper also allows for pausing in the middle of a run. To do this, simply interrupt the kernel while the scraper is still only on the likes page (this is to prevent data from being collected twice). Run the block below the main control loop to save progress. Then when you reopen the scraper run the block labeled "reload an in-progress run."
 
