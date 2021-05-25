@@ -2,7 +2,7 @@
 
 Using web scraping and machine learning to visualize communities on SoundCloud.
 
-This repo contains two jupyter notebooks, soundcloud_scraper_clean.ipynb is the scraper and soundcloud_landscape_plotting_clean.ipynb makes relevant visualizations. This records the latest 500 likes, comments, reposts, and follows of the accounts stored in seeds.csv, and writes them to a scipy sparse matrix. Likes are assigned a value of one and every otherr type of interaction is given a value of three. It could be modified to collect these interaction types in separate matrices but this ratio works well for data visualization.
+This repo contains two jupyter notebooks, soundcloud_scraper_clean.ipynb is the scraper and soundcloud_landscape_plotting_clean.ipynb makes relevant visualizations. This records the latest 500 likes, comments, reposts, and follows of the accounts stored in remaining_seeds.csv, and writes them to a scipy sparse matrix. Likes are assigned a value of one and every other type of interaction is given a value of three. It could be modified to collect these interaction types in separate matrices but this ratio works well for data visualization.
 
 The raw data used to produce the original graph with 1,600 artists, where likes, follows, comments, and reposts data are stored separately can be found here: https://www.mediafire.com/folder/z8moaq2vgnbdl/soundcloud_scraped_data
 
